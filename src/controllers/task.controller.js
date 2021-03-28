@@ -45,8 +45,25 @@ export function updateTask(req, res) {
     
 }
 
-export function deleteTask(req, res) {
-    
+export async function deleteTask(req, res){
+    try {
+        const { id } = req.params;
+        const deleteRowCount =  await Task.destroy({
+            where: {
+                id
+            }
+        });
+        res.json({
+            message: 'Task Deleted succesfully',
+            count: deleteRowCount,
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Something goes wrong',
+            data: {}
+        })
+    }
 }
 
 export function getOneTask(req, res) {

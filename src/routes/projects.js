@@ -7,11 +7,14 @@ import { createProject, getProject, getOneProject, deleteProject, updateProject 
 router.post('/',createProject );
 router.get('/',getProject );
 
-// /api/projects/:projectId
+// /api/projects/:projectid
+
 // Give me one Project
 router.get('/:id',getOneProject );
+
 // Delete
 router.delete('/:id',deleteProject);
+
 // Update
 router.put('/:id',updateProject);
 
